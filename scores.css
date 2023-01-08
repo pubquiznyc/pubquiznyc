@@ -1,0 +1,75 @@
+body {
+background-color: #fff;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color: #333;
+line-height: 1.3em;
+font-size: 15px
+}
+.standings-heading {
+background-color: #999;
+color: #fff;
+font-size: 36px;
+font-weight: bold;
+line-height: 1.3em;
+margin: -2px 0;
+padding-right: 10px;
+text-align: center;
+text-transform: uppercase
+}
+.standings-heading a {
+color: #fff
+}
+.standings-heading a:hover {
+text-decoration: none
+}
+.standings table {
+border: solid 2px #999;
+border-collapse: collapse;
+border-spacing: 0;
+line-height: 1.3em;
+}
+.standings th {
+border-bottom: solid 3px #999;
+color: #999;
+font-size: 11px;
+line-height: 1.5em;
+padding: 0px 4px;
+text-align: left
+}
+.standings tr:nth-child(2n+1) {
+background-color: #eee
+}
+.standings td {
+border-bottom: solid 1px #666;
+color: #333;
+font-size: 11px;
+padding: 2px 5px;
+text-align: left
+}
+.standings td a {
+color: #333
+}
+.standings td.ranking {
+background-color: #fff;
+border-bottom: none;
+border-right: solid 1px #999;
+text-align: right
+}
+.standings td.team-name {
+width: 100%
+}
+.standings td.total {
+background-color: #ccc;
+border-left: solid 1px #999
+}
+.standings td.standings-footer {
+background-color: #666;
+color: #fff;
+font-size: 10px;
+margin: 0px;
+padding: 0px;
+text-align: center
+}
+.standings td.standings-footer a {
+color: #fff
+}
