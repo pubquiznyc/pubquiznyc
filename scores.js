@@ -3,7 +3,7 @@ const loadScoreBoard = async (scoreboardId) => {
  
  const scoreUrl = `https://keepthescore.co/api/${scoreboardId}/board/`;
  const loadingDiv = document.querySelector('div.loading');
- if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from #{scoreUrl}...`;
+ if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${scoreUrl}...`;
 
  const response = await fetch(scoreUrl);
  const tableData = await response.json();
