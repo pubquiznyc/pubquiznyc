@@ -66,8 +66,9 @@ const loadScoreBoard = async (scoreboardId) => {
    totalCell.appendChild(document.createTextNode(player.score));
    
    document.body.append(standingsDiv);
-   if (loadingDiv) loadingDiv.remove();
  }
+
+ if (loadingDiv) loadingDiv.remove();
 };
 
 loadScoreBoard(new URLSearchParams(new URL(window.location.href).search).get('id'));
