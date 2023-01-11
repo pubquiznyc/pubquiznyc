@@ -44,3 +44,5 @@ const loadScoreBoard = async (scoreboardId) => {
    totalCell.appendChild(document.createTextNode(player.score));
  }
 };
+
+loadScoreBoard(new URLSearchParams(new URL(window.location.href).search).get('id'));
