@@ -1,14 +1,36 @@
 const loadScoreBoard = async (scoreboardId) => {
- const response = await fetch(`https://keepthescore.co/api/${scoreboardId}/board/`);
+ if (!scoreboardId) return;
+ 
+ const scoreUrl = `https://keepthescore.co/api/${scoreboardId}/board/`;
+ const loadingDiv = document.querySelector('div.loading-indicator');
+ if (loadingDiv) loadingDiv.firstChild.data = 'Loading scores from #{scoreUrl}...';
+
+ const response = await fetch(scoreUrl);
  const tableData = await response.json();
  tableData.rounds.reverse();
 
- const titleDiv = document.querySelector('div.standings-heading');
+ const standingsDiv = document.createElement("div");
+ standingsDiv.className='standings';
+
+ const titleDiv = document.createElement("div");
+ titleDiv.className='standings-heading';
  titleDiv.appendChild(document.createTextNode(tableData.board.game_name));
+ standingsDiv.append(titleDiv);
 
- const table = document.querySelector('table');
+ const table = document.createElement("table");
+ standingsDiv.append(table);
+ const tbody = document.createElement("tbody");
+ table.append(tbody);
+ const headRow = document.createElement("tr");
+ headRow.className='head-row';
+ tbody.append(headRow);
+ const rankingHead = document.createElement("th");
+ rankingHead.className='ranking';
+ headRow.append(rankingHead);
+ const nameHead = document.createElement("th");
+ nameHead.appendChild(document.createTextNode('Team Name'));
+ headRow.append(nameHead);
 
- const headRow = table.querySelector('tr.head-row');
  for (let round of tableData.rounds) {
    let roundCell = headRow.appendChild(document.createElement('th'));
    roundCell.appendChild(document.createTextNode(round.comment));
@@ -42,6 +64,9 @@ const loadScoreBoard = async (scoreboardId) => {
    let totalCell = row.insertCell();
    totalCell.className = 'total';
    totalCell.appendChild(document.createTextNode(player.score));
+   
+   document.body.append(standingsDiv);
+   if (loadingDiv) loadingDiv.remove();
  }
 };
 
