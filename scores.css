@@ -1,9 +1,11 @@
 body {
-background-color: #fff;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 color: #333;
 line-height: 1.3em;
 font-size: 15px
+}
+.standings {
+background-color: #fff;
 }
 .standings-heading {
 background-color: #999;
