@@ -4,6 +4,9 @@ color: #333;
 line-height: 1.3em;
 font-size: 15px
 }
+.printonly {
+display: none
+}
 .standings {
 background-color: #fff;
 }
