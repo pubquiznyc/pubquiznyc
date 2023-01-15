@@ -37,6 +37,12 @@ const loadScoreBoard = async (scoreboardId) => {
  }
  let totalCell = headRow.appendChild(document.createElement('th'));
  totalCell.appendChild(document.createTextNode('Total'));
+ let weekCell = headRow.appendChild(document.createElement('th'));
+ weekCell.className='printonly';
+ weekCell.appendChild(document.createTextNode('Week'));
+ let monthCell = headRow.appendChild(document.createElement('th'));
+ monthCell.className='printonly';
+ monthCell.appendChild(document.createTextNode('Month'));
 
  for (let index = 0; index < tableData.players.length; index++) {
    let row = table.insertRow();
@@ -64,10 +70,16 @@ const loadScoreBoard = async (scoreboardId) => {
    let totalCell = row.insertCell();
    totalCell.className = 'total';
    totalCell.appendChild(document.createTextNode(player.score));
-   
-   document.body.append(standingsDiv);
+
+   let weekCell = row.insertCell();
+   weekCell.className = 'printonly';
+   weekCell.innerHTML = '&nbsp;&nbsp;&nbsp;'
+   let monthCell = row.insertCell();
+   monthCell.className = 'printonly total';
+   monthCell.innerHTML = '&nbsp;&nbsp;&nbsp;'
  }
 
+ document.body.append(standingsDiv);
  if (loadingDiv) loadingDiv.remove();
 };
 
