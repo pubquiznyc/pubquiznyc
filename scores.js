@@ -12,9 +12,14 @@ const loadScoreBoard = async (scoreboardId) => {
  const standingsDiv = document.createElement("div");
  standingsDiv.className='standings';
 
+ const titleLink = document.createElement('a');
+ titleLink.href = "#";
+ titleLink.target = "_blank";
+ titleLink.appendChild(document.createTextNode(tableData.board.game_name));
+
  const titleDiv = document.createElement("div");
  titleDiv.className='standings-heading';
- titleDiv.appendChild(document.createTextNode(tableData.board.game_name));
+ titleDiv.appendChild(titleLink);
  standingsDiv.append(titleDiv);
 
  const table = document.createElement("table");
