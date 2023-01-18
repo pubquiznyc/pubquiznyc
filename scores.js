@@ -13,7 +13,7 @@ const loadScoreBoard = async (scoreboardId) => {
  standingsDiv.className='standings';
 
  const titleLink = document.createElement('a');
- titleLink.href = "#";
+ titleLink.href = `https://pubquiznyc.github.io/pubquiznyc/scores?id=${scoreboardId}`;
  titleLink.target = "_blank";
  titleLink.appendChild(document.createTextNode(tableData.board.game_name));
 
