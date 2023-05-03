@@ -15,7 +15,7 @@ const loadScoreBoard = async (scoreboardId) => {
  const titleLink = document.createElement('a');
  titleLink.href = `https://pubquiznyc.github.io/pubquiznyc/scores?id=${scoreboardId}`;
  titleLink.target = "_blank";
- titleLink.appendChild(document.createTextNode(tableData.board.game_name));
+ titleLink.appendChild(document.createTextNode(tableData.board.title));
 
  const titleDiv = document.createElement("div");
  titleDiv.className='standings-heading';
