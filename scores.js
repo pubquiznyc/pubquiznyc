@@ -1,7 +1,7 @@
 const loadScoreBoard = async (scoreboardId) => {
  if (!scoreboardId) return;
  
- const scoreUrl = `https://keepthescore.co/api/${scoreboardId}/board/`;
+ const scoreUrl = `https://keepthescore.com/api/${scoreboardId}/board/`;
  const loadingDiv = document.querySelector('div.loading');
  if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${scoreUrl}...`;
 
