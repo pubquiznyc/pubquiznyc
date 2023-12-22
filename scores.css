@@ -46,8 +46,11 @@ line-height: 1.5em;
 padding: 0px 4px;
 text-align: left
 }
+.standings th a {
+color: #999;
+}
 .standings tr:nth-child(2n+1) {
-background-color: #eee
+background-color: #eee;
 }
 .standings td {
 border-bottom: solid 1px #666;
