@@ -41,7 +41,11 @@ const loadScoreBoard = async (scoreboardId) => {
    roundCell.appendChild(document.createTextNode(round.comment));
  }
  let totalCell = headRow.appendChild(document.createElement('th'));
- totalCell.appendChild(document.createTextNode('Total'));
+ const scoresheetLink = document.createElement('a');
+ scoresheetLink.href = `https://pubquiznyc.github.io/pubquiznyc/scoresheet?id=${scoreboardId}`;
+ scoresheetLink.target = "_blank";
+ scoresheetLink.appendChild(document.createTextNode('Total'));
+ totalCell.appendChild(scoresheetLink);
  let weekCell = headRow.appendChild(document.createElement('th'));
  weekCell.className='printonly';
  weekCell.appendChild(document.createTextNode('Week'));
