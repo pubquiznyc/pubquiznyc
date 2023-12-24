@@ -1,11 +1,11 @@
 const loadScoreBoard = async (scoreboardId) => {
  if (!scoreboardId) return;
  
- const scoreUrl = `https://keepthescore.com/api/${scoreboardId}/board/`;
+ const leaderBoardUrl = `https://keepthescore.com/api/${scoreboardId}/board/`;
  const loadingDiv = document.querySelector('div.loading');
- if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${scoreUrl}...`;
+ if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${leaderBoardUrl}...`;
 
- const response = await fetch(scoreUrl);
+ const response = await fetch(leaderBoardUrl);
  const tableData = await response.json();
  tableData.rounds.reverse();
 
