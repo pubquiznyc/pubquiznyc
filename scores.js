@@ -1,25 +1,24 @@
 const loadScoreBoard = async (scoreboardId) => {
  if (!scoreboardId) return;
  
- const scoreUrl = `https://keepthescore.com/api/${scoreboardId}/board/`;
+ const leaderBoardUrl = `https://keepthescore.com/api/${scoreboardId}/board/`;
  const loadingDiv = document.querySelector('div.loading');
- if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${scoreUrl}...`;
+ if (loadingDiv) loadingDiv.firstChild.data = `Loading scores from ${leaderBoardUrl}...`;
 
- const response = await fetch(scoreUrl);
+ const scoresUrl = `https://pubquiznyc.github.io/pubquiznyc/scores?id=${scoreboardId}`;
+ const scoresheetUrl = `https://pubquiznyc.github.io/pubquiznyc/scoresheet?id=${scoreboardId}`;
+
+ const response = await fetch(leaderBoardUrl);
  const tableData = await response.json();
  tableData.rounds.reverse();
 
  const standingsDiv = document.createElement("div");
  standingsDiv.className='standings';
 
- const titleLink = document.createElement('a');
- titleLink.href = `https://pubquiznyc.github.io/pubquiznyc/scores?id=${scoreboardId}`;
- titleLink.target = "_blank";
- titleLink.appendChild(document.createTextNode(tableData.board.appearance.title));
-
  const titleDiv = document.createElement("div");
  titleDiv.className='standings-heading';
- titleDiv.appendChild(titleLink);
+ titleDiv.appendChild(document.createTextNode(tableData.board.appearance.title));
+ titleDiv.onclick = () => {window.open(scoresUrl);}
  standingsDiv.append(titleDiv);
 
  const table = document.createElement("table");
@@ -28,6 +27,7 @@ const loadScoreBoard = async (scoreboardId) => {
  table.append(tbody);
  const headRow = document.createElement("tr");
  headRow.className='head-row';
+ headRow.onclick = () => {window.open(scoresheetUrl);}
  tbody.append(headRow);
  const rankingHead = document.createElement("th");
  rankingHead.className='ranking';
@@ -40,16 +40,14 @@ const loadScoreBoard = async (scoreboardId) => {
    let roundCell = headRow.appendChild(document.createElement('th'));
    roundCell.appendChild(document.createTextNode(round.comment));
  }
- let totalCell = headRow.appendChild(document.createElement('th'));
- const scoresheetLink = document.createElement('a');
- scoresheetLink.href = `https://pubquiznyc.github.io/pubquiznyc/scoresheet?id=${scoreboardId}`;
- scoresheetLink.target = "_blank";
- scoresheetLink.appendChild(document.createTextNode('Total'));
- totalCell.appendChild(scoresheetLink);
- let weekCell = headRow.appendChild(document.createElement('th'));
+
+ const totalCell = headRow.appendChild(document.createElement('th'));
+ totalCell.appendChild(document.createTextNode('Total'));
+
+ const weekCell = headRow.appendChild(document.createElement('th'));
  weekCell.className='printonly';
  weekCell.appendChild(document.createTextNode('Week'));
- let monthCell = headRow.appendChild(document.createElement('th'));
+ const monthCell = headRow.appendChild(document.createElement('th'));
  monthCell.className='printonly';
  monthCell.appendChild(document.createTextNode('Month'));
 
