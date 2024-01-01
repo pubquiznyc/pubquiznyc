@@ -1,5 +1,7 @@
 body {
   color: #000;
+  -webkit-print-color-adjust:exact !important;
+  print-color-adjust:exact !important;
 }
 .scoresheet-heading {
   height: 50px;
@@ -14,6 +16,9 @@ body {
 }
 .scoresheet tr {
   height: 35px;
+}
+.scoresheet tr:nth-child(2n+1) {
+  background-color: #eee;
 }
 .head-row {
   font: 8pt Helvetica;
