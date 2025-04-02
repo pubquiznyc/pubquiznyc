@@ -24,7 +24,7 @@ const loadScoreBoard = async (scoreboardId) => {
  headRow.className='head-row';
  tbody.append(headRow);
 
- const columnTitles = ["Chugs", "Team Name", "R1", "R2", "R3", "R4", "Subtotal", "R5", "Final"];
+ const columnTitles = ["Chugs", "Team Name", "R1", "R2", "R3", "R4", "R5", "Subtotal", "R6", "Final"];
  for (let columnTitle of columnTitles) {
    const columnHead = document.createElement("th");
    columnHead.appendChild(document.createTextNode(columnTitle));
@@ -33,7 +33,7 @@ const loadScoreBoard = async (scoreboardId) => {
 
  // Map of player names, limited to the top X and sorted.
  const playerNames = tableData.players.map(p => p.name).slice(0,15).sort();
- playerNames.push(...["","","","","","","","","","",""]);
+ playerNames.push(...["","","","","","","","","","","",""]);
  
  for (let playerName of playerNames) {
    let row = table.insertRow();
@@ -45,6 +45,7 @@ const loadScoreBoard = async (scoreboardId) => {
    nameCell.className = 'team-name';
    nameCell.appendChild(document.createTextNode(playerName));
 
+   row.insertCell();
    row.insertCell();
    row.insertCell();
    row.insertCell();
