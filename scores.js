@@ -43,7 +43,12 @@ const loadScoreBoard = async (scoreboardId) => {
 
  const totalCell = headRow.appendChild(document.createElement('th'));
  totalCell.appendChild(document.createTextNode('Total'));
- totalCell.onclick = () => {navigator.clipboard.writeText(document.querySelector('div.standings').outerHTML);}
+ totalCell.onclick = () => {
+   const clipboardContent = document.querySelector('div.standings').outerHTML;
+   navigator.clipboard.writeText(clipboardContent).then(() => {
+     window.alert('div.standings copied to clipboard');
+   });
+ }
 
  const weekCell = headRow.appendChild(document.createElement('th'));
  weekCell.className='printonly';
