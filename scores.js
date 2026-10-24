@@ -44,8 +44,6 @@ const loadScoreBoard = async (scoreboardId) => {
  const totalCell = headRow.appendChild(document.createElement('th'));
  totalCell.appendChild(document.createTextNode('Total'));
  totalCell.onclick = () => {navigator.clipboard.writeText(document.querySelector('div.standings').outerHTML);}
- const totalCell = headRow.appendChild(document.createElement('th'));
- totalCell.appendChild(document.createTextNode('Total'));
 
  const weekCell = headRow.appendChild(document.createElement('th'));
  weekCell.className='printonly';
