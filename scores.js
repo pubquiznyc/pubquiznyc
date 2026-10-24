@@ -27,7 +27,6 @@ const loadScoreBoard = async (scoreboardId) => {
  table.append(tbody);
  const headRow = document.createElement("tr");
  headRow.className='head-row';
- headRow.onclick = () => {window.open(scoresheetUrl);}
  tbody.append(headRow);
  const rankingHead = document.createElement("th");
  rankingHead.className='ranking';
@@ -39,8 +38,12 @@ const loadScoreBoard = async (scoreboardId) => {
  for (let round of tableData.rounds) {
    let roundCell = headRow.appendChild(document.createElement('th'));
    roundCell.appendChild(document.createTextNode(round.comment));
+   roundCell.onclick = () => {window.open(scoresheetUrl);}
  }
 
+ const totalCell = headRow.appendChild(document.createElement('th'));
+ totalCell.appendChild(document.createTextNode('Total'));
+ totalCell.onclick = () => {navigator.clipboard.writeText(document.querySelector('div.standings').outerHTML);}
  const totalCell = headRow.appendChild(document.createElement('th'));
  totalCell.appendChild(document.createTextNode('Total'));
 
