@@ -1,0 +1,16 @@
+/* Archive additions: static Disqus comments and previous/next post links. */
+#disqus_thread .ac-heading{font-size:13px;font-weight:bold;text-transform:uppercase;color:#666;margin-bottom:20px}
+#disqus_thread .ac-comment{margin-bottom:18px}
+#disqus_thread .ac-meta{font-size:11px;color:#999;margin-bottom:3px}
+#disqus_thread .ac-author{font-size:13px;font-weight:bold;color:#333;margin-right:6px}
+#disqus_thread .ac-body p{margin:0 0 6px}
+#disqus_thread .ac-body a{text-decoration:underline}
+#disqus_thread .ac-body i,#disqus_thread .ac-body em{font-style:italic}
+#disqus_thread .ac-body b,#disqus_thread .ac-body strong{font-weight:bold}
+#disqus_thread .ac-body blockquote{margin:0 0 6px 10px;padding-left:8px;border-left:3px solid #ccc;color:#666}
+#disqus_thread .ac-replies{margin:12px 0 0 12px;padding-left:16px;border-left:2px solid #ddd}
+#disqus_thread .ac-footer{font-size:10px;color:#999;text-transform:uppercase;margin-top:24px}
+.post-nav{display:flex;justify-content:space-between;margin:40px 0 0;text-align:left;font-size:13px;line-height:1.35em}
+.post-nav a{color:#933;max-width:47%}
+.post-nav a.post-nav-next{margin-left:auto;text-align:right}
+.post-nav .post-nav-label{display:block;color:#999;font-size:10px;text-transform:uppercase;margin-bottom:2px}
